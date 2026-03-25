@@ -146,9 +146,9 @@ const Dashboard = () => {
       return bChange - aChange;
     });
     
-    // Get top 3 gainers and losers
-    topGainers.push(...sortedStocks.slice(0, 3));
-    topLosers.push(...sortedStocks.slice(-3).reverse());
+    // Get top 3 gainers (positive change only) and top 3 losers (negative change only)
+    topGainers.push(...sortedStocks.filter(s => parseFloat(s.change_percent) > 0).slice(0, 3));
+    topLosers.push(...sortedStocks.filter(s => parseFloat(s.change_percent) < 0).sort((a, b) => parseFloat(a.change_percent) - parseFloat(b.change_percent)).slice(0, 3));
   }
   
   return (
