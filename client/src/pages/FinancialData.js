@@ -588,12 +588,11 @@ const FinancialData = () => {
                 <Alert severity="error" sx={{ mb: 2 }}>
                   {error || 'حدث خطأ أثناء جلب البيانات المالية'}
                 </Alert>
-              ) : (
-                {!financialRatios ? (
-                  <Alert severity="info">
+              ) : !financialRatios ? (
+                <Alert severity="info">
                     اختر سهماً لعرض النسب المالية المحسوبة من البيانات الفعلية.
                   </Alert>
-                ) : (
+              ) : (
                   <Grid container spacing={3}>
                     <Grid item xs={12} md={6}>
                       <TableContainer component={Paper}>
@@ -655,8 +654,8 @@ const FinancialData = () => {
                       </Box>
                     </Grid>
                   </Grid>
-                )}
-              )}
+                )
+              }
             </CardContent>
           </Card>
         </Grid>
