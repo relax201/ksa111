@@ -4,12 +4,16 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, 'build')));
+// Support both: running from project root (node client/server.js)
+// and running from client/ dir (node server.js)
+const buildDir = path.join(__dirname, 'build');
+
+app.use(express.static(buildDir));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(buildDir, 'index.html'));
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Frontend server running on port ${PORT}`);
 });

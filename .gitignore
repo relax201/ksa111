@@ -27,3 +27,12 @@ backend/storage/framework/views/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Legacy root PHP files (not deployed)
+/api.php
+/index.php
+/run_system.php
+/integration.log
+/mock_integration.log
+/cache/
+/data/

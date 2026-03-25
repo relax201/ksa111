@@ -1,3 +1,8 @@
-# TASI3 Multi-Service Railway Deployment
-# Deploy backend/ and client/ as separate Railway services
-# See backend/railway.toml and client/railway.toml
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "node client/server.js"
+healthcheckPath = "/"
+healthcheckTimeout = 60
+restartPolicyType = "on_failure"
