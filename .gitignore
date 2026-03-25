@@ -1,0 +1,29 @@
+# Dependencies
+backend/vendor/
+client/node_modules/
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment files
+backend/.env
+client/.env.local
+client/.env.production
+
+# Database
+backend/database/database.sqlite
+backend/storage/logs/*.log
+storage/
+
+# Build output
+client/build/
+
+# Laravel cache
+backend/bootstrap/cache/*.php
+backend/storage/framework/cache/
+backend/storage/framework/sessions/
+backend/storage/framework/views/
+
+# OS files
+.DS_Store
+Thumbs.db

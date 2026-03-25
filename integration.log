@@ -1,0 +1,358 @@
+2025-08-29 07:29:24,313 - system_integration - ERROR - Error parsing JSON input: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+2025-08-29 07:29:24,416 - system_integration - ERROR - Error parsing JSON input: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+2025-08-29 07:29:24,532 - system_integration - ERROR - Error parsing JSON input: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+2025-08-29 07:29:24,654 - system_integration - ERROR - Error parsing JSON input: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+2025-08-29 07:29:24,759 - system_integration - ERROR - Error parsing JSON input: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+2025-08-29 07:29:24,873 - system_integration - ERROR - Error parsing JSON input: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+2025-08-29 07:29:24,991 - system_integration - ERROR - Error parsing JSON input: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+2025-08-29 07:30:04,874 - system_integration - INFO - Received parameters: {'action': 'recommend', 'risk_profile': 'moderate', 'investment_horizon': 'medium', 'sectors': ['technology', 'healthcare'], 'exclude_symbols': ['AAPL', 'MSFT'], 'max_results': 5}
+2025-08-29 07:30:04,875 - system_integration - INFO - System Integration initialized
+2025-08-29 07:30:08,571 - system_integration - INFO - Component loaded: recommendation
+2025-08-29 07:30:08,571 - system_integration - ERROR - Error getting recommendations: 'RecommendationEngine' object has no attribute 'get_recommendations'
+2025-08-29 07:30:08,572 - system_integration - ERROR - Traceback (most recent call last):
+  File "R:\localhost\htdocs\tasi3\integration/system_integration.py", line 139, in get_recommendations
+    recommendations = engine.get_recommendations(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RecommendationEngine' object has no attribute 'get_recommendations'. Did you mean: 'batch_recommendations'?
+
+2025-08-29 07:30:08,742 - system_integration - INFO - Received parameters: {'action': 'technical_analysis', 'symbol': '2222.SR', 'indicators': ['SMA', 'RSI', 'MACD'], 'timeframe': 'daily'}
+2025-08-29 07:30:08,743 - system_integration - INFO - System Integration initialized
+2025-08-29 07:30:09,275 - system_integration - INFO - Component loaded: technical_analysis
+2025-08-29 07:30:09,276 - system_integration - ERROR - Error getting technical analysis: 'TechnicalAnalyzer' object has no attribute 'get_historical_data'
+2025-08-29 07:30:09,277 - system_integration - ERROR - Traceback (most recent call last):
+  File "R:\localhost\htdocs\tasi3\integration/system_integration.py", line 187, in get_technical_analysis
+    historical_data = analyzer.get_historical_data(symbol, timeframe)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TechnicalAnalyzer' object has no attribute 'get_historical_data'
+
+2025-08-29 07:30:09,441 - system_integration - INFO - Received parameters: {'action': 'fundamental_analysis', 'symbol': '2222.SR', 'metrics': ['PE', 'PB', 'ROE', 'EPS']}
+2025-08-29 07:30:09,442 - system_integration - INFO - System Integration initialized
+2025-08-29 07:30:09,937 - system_integration - INFO - Component loaded: fundamental_analysis
+2025-08-29 07:30:09,938 - system_integration - ERROR - Error getting fundamental analysis: 'FundamentalAnalyzer' object has no attribute 'get_financial_data'
+2025-08-29 07:30:09,939 - system_integration - ERROR - Traceback (most recent call last):
+  File "R:\localhost\htdocs\tasi3\integration/system_integration.py", line 244, in get_fundamental_analysis
+    financial_data = analyzer.get_financial_data(symbol)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FundamentalAnalyzer' object has no attribute 'get_financial_data'. Did you mean: 'financial_data'?
+
+2025-08-29 07:30:10,100 - system_integration - INFO - Received parameters: {'action': 'collect_market_data', 'symbols': ['2222.SR', '1211.SR'], 'data_types': ['price', 'volume', 'market_cap']}
+2025-08-29 07:30:10,101 - system_integration - INFO - System Integration initialized
+2025-08-29 07:30:11,400 - system_integration - INFO - Component loaded: market_data
+2025-08-29 07:30:11,401 - system_integration - ERROR - Error collecting market data: 'MarketDataCollector' object has no attribute 'collect_data'
+2025-08-29 07:30:11,402 - system_integration - ERROR - Traceback (most recent call last):
+  File "R:\localhost\htdocs\tasi3\integration/system_integration.py", line 307, in collect_market_data
+    market_data = collector.collect_data(symbols, data_types)
+                  ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketDataCollector' object has no attribute 'collect_data'
+
+2025-08-29 07:30:11,588 - system_integration - INFO - Received parameters: {'action': 'collect_financial_data', 'symbols': ['2222.SR', '1211.SR'], 'statement_types': ['income', 'balance', 'cash_flow'], 'periods': ['annual', 'quarterly']}
+2025-08-29 07:30:11,589 - system_integration - INFO - System Integration initialized
+2025-08-29 07:30:12,578 - system_integration - INFO - Component loaded: financial_data
+2025-08-29 07:30:12,578 - system_integration - ERROR - Error collecting financial data: 'FinancialDataCollector' object has no attribute 'collect_data'
+2025-08-29 07:30:12,580 - system_integration - ERROR - Traceback (most recent call last):
+  File "R:\localhost\htdocs\tasi3\integration/system_integration.py", line 347, in collect_financial_data
+    financial_data = collector.collect_data(symbols, statement_types, periods)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FinancialDataCollector' object has no attribute 'collect_data'
+
+2025-08-29 07:30:12,767 - system_integration - INFO - Received parameters: {'action': 'analyze_sentiment', 'symbols': ['2222.SR', '1211.SR'], 'sources': ['news', 'social_media', 'analyst_ratings'], 'time_range': '1w'}
+2025-08-29 07:30:12,767 - system_integration - INFO - System Integration initialized
+2025-08-29 07:30:13,711 - root - WARNING - NLTK not installed. Some features may not work.
+2025-08-29 07:30:13,711 - root - WARNING - Arabic NLP libraries not installed. Arabic sentiment analysis will be limited.
+2025-08-29 07:30:13,712 - data.collectors.sentiment_analyzer - ERROR - Error initializing NLTK resources: name 'nltk' is not defined
+2025-08-29 07:30:13,713 - system_integration - INFO - Component loaded: sentiment_analysis
+2025-08-29 07:30:13,713 - system_integration - ERROR - Error analyzing sentiment: 'SentimentAnalyzer' object has no attribute 'analyze'
+2025-08-29 07:30:13,714 - system_integration - ERROR - Traceback (most recent call last):
+  File "R:\localhost\htdocs\tasi3\integration/system_integration.py", line 387, in analyze_sentiment
+    sentiment_data = analyzer.analyze(symbols, sources, time_range)
+                     ^^^^^^^^^^^^^^^^
+AttributeError: 'SentimentAnalyzer' object has no attribute 'analyze'
+
+2025-08-29 07:30:13,900 - system_integration - INFO - Received parameters: {'action': 'process_financial_data', 'data': {'symbol': '2222.SR', 'financials': {'income': {'revenue': [100000000, 120000000, 150000000], 'net_income': [10000000, 15000000, 20000000]}, 'balance': {'total_assets': [500000000, 550000000, 600000000], 'total_liabilities': [300000000, 320000000, 350000000]}}}, 'processing_type': 'normalization', 'options': {'method': 'min_max'}}
+2025-08-29 07:30:13,901 - system_integration - INFO - System Integration initialized
+2025-08-29 07:30:14,417 - system_integration - INFO - Component loaded: data_processor
+2025-08-29 07:30:14,417 - system_integration - ERROR - Error processing financial data: 'FinancialDataProcessor' object has no attribute 'process'
+2025-08-29 07:30:14,418 - system_integration - ERROR - Traceback (most recent call last):
+  File "R:\localhost\htdocs\tasi3\integration/system_integration.py", line 430, in process_financial_data
+    processed_data = processor.process(data, processing_type, options)
+                     ^^^^^^^^^^^^^^^^^
+AttributeError: 'FinancialDataProcessor' object has no attribute 'process'
+
+2026-03-24 19:24:21,897 - system_integration - ERROR - Error parsing JSON input: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-03-24 19:25:52,057 - system_integration - INFO - System Integration initialized
+2026-03-24 19:25:58,551 - system_integration - INFO - Component loaded: recommendation
+2026-03-24 19:28:40,194 - system_integration - INFO - System Integration initialized
+2026-03-24 19:28:41,139 - system_integration - INFO - Component loaded: recommendation
+2026-03-24 19:28:44,267 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.01 0.05 0.07 0.05 0.06 0.16 0.04 0.03 0.02 0.01 0.09 0.08 0.03 0.02
+ 0.01 0.06 0.04 0.02 0.02 0.1  0.02 0.09 0.1  0.11 0.02 0.06 0.07 0.01
+ 0.04 0.02 0.04 0.04 0.01 0.03 0.02 0.02 0.02 0.01 0.01 0.06 0.05 0.03
+ 0.01 0.01 0.01 0.03 0.01 0.02 0.03 0.06 0.01 0.03 0.02 0.02 0.06 0.01
+ 0.03 0.02 0.01 0.02 0.03 0.01 0.01 0.01 0.01 0.01 0.03 0.06 0.01 0.04
+ 0.02 0.01 0.02 0.01 0.01 0.13 0.17 0.07 0.04 0.03 0.03 0.02 0.12]' for dtype 'int64'
+2026-03-24 19:28:45,093 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.45 0.25 0.1  0.15 0.75 0.9  0.05 0.25 0.05 0.07 0.09 0.65 0.45 0.1
+ 0.05 0.3  0.29 0.54 0.1  0.1  0.19 0.23 0.11 0.25 0.05 0.07 0.18 0.05
+ 0.06 0.1  0.21 0.08 0.11 0.05 0.03 0.06 0.06 0.12 0.77 0.42 0.52 0.38
+ 0.47 0.19 0.07 0.09 0.12 0.23 0.01 0.47 1.06 0.02 0.2  0.08 0.26 0.08
+ 0.08 0.04 0.04 0.12 0.04 0.01 0.01 0.23 0.07 0.16 0.14 0.08 0.05 0.2
+ 0.52 0.15 0.56 0.17 0.06 0.04 0.06 0.18 0.44 0.34 0.38 0.1  0.06 0.18
+ 0.16 0.04 0.1  0.28 0.48 0.5  0.36 0.26 0.52 0.06]' for dtype 'int64'
+2026-03-24 19:48:02,553 - system_integration - INFO - Received parameters: {'action': 'recommend', 'risk_profile': 'moderate', 'investment_horizon': 'medium', 'sectors': ['technology', 'healthcare'], 'exclude_symbols': [], 'max_results': 5}
+2026-03-24 19:48:02,553 - system_integration - INFO - System Integration initialized
+2026-03-24 19:48:03,720 - system_integration - INFO - Component loaded: recommendation
+2026-03-24 19:48:05,695 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.01 0.05 0.07 0.05 0.06 0.16 0.04 0.03 0.02 0.01 0.09 0.08 0.03 0.02
+ 0.01 0.06 0.04 0.02 0.02 0.1  0.02 0.09 0.1  0.11 0.02 0.06 0.07 0.01
+ 0.04 0.02 0.04 0.04 0.01 0.03 0.02 0.02 0.02 0.01 0.01 0.06 0.05 0.03
+ 0.01 0.01 0.01 0.03 0.01 0.02 0.03 0.06 0.01 0.03 0.02 0.02 0.06 0.01
+ 0.03 0.02 0.01 0.02 0.03 0.01 0.01 0.01 0.01 0.01 0.03 0.06 0.01 0.04
+ 0.02 0.01 0.02 0.01 0.01 0.13 0.17 0.07 0.04 0.03 0.03 0.02 0.12]' for dtype 'int64'
+2026-03-24 19:48:07,218 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.45 0.25 0.1  0.15 0.75 0.9  0.05 0.25 0.05 0.07 0.09 0.65 0.45 0.1
+ 0.05 0.3  0.29 0.54 0.1  0.1  0.19 0.23 0.11 0.25 0.05 0.07 0.18 0.05
+ 0.06 0.1  0.21 0.08 0.11 0.05 0.03 0.06 0.06 0.12 0.77 0.42 0.52 0.38
+ 0.47 0.19 0.07 0.09 0.12 0.23 0.01 0.47 1.06 0.02 0.2  0.08 0.26 0.08
+ 0.08 0.04 0.04 0.12 0.04 0.01 0.01 0.23 0.07 0.16 0.14 0.08 0.05 0.2
+ 0.52 0.15 0.56 0.17 0.06 0.04 0.06 0.18 0.44 0.34 0.38 0.1  0.06 0.18
+ 0.16 0.04 0.1  0.28 0.48 0.5  0.36 0.26 0.52 0.06]' for dtype 'int64'
+2026-03-24 19:48:08,514 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.21 0.19 0.19 0.08 0.2  0.03 0.1  0.06 0.04 0.03 0.08 0.18 0.01 0.03
+ 0.26 0.22 0.09 0.39 0.01 0.12 0.19 0.37 0.11 0.1  0.05 0.02 0.19 0.01
+ 0.02 0.1  0.06 0.14 0.09 0.23 0.03 0.08 0.07 0.15 0.06 0.29 0.09 0.12
+ 0.1  0.1  0.21 0.02 0.02 0.08 0.04 0.1  0.04 0.01 0.1  0.07 0.06 0.04
+ 0.02 0.05 0.01 0.07 0.02 0.06 0.08 0.14 0.09 0.07 0.09 0.07 0.05 0.04
+ 0.07 0.38 0.01 0.11 0.09 0.15 0.07 0.04 0.02 0.25 0.05 0.28 0.07 0.03
+ 0.43]' for dtype 'int64'
+2026-03-24 19:48:09,700 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.111 0.148 0.2   0.253 0.012 0.169 0.011 0.07  0.01  0.08  0.02  0.02
+ 0.12  0.065 0.1   0.07  0.11  0.021 0.02  0.398 0.18  0.15  0.05  0.1
+ 0.05  0.009 0.2   0.03  0.07  0.2   0.05  0.01  0.2   0.145 0.1   0.05
+ 0.19  0.13  0.179 0.21  0.2   0.467 0.01  0.09  0.16  0.1   0.05  0.26
+ 0.1   0.01  0.29  1.3   0.19  0.061 1.12  0.049 0.16  0.62  0.04  0.03
+ 0.25  0.02  0.02  0.09  0.12  0.21  0.03  0.07  0.1   0.11  0.028 0.142
+ 1.01  0.3   0.199 0.4   0.07  0.65  0.06  0.749 0.35  0.1   0.05  0.779
+ 0.25  0.4   0.6   0.518 0.002 0.1   0.302]' for dtype 'int64'
+2026-03-24 19:48:12,317 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.05 0.6  0.65 0.35 0.8  0.4  0.3  0.1  1.6  0.2  0.25 0.2  0.05 0.1
+ 0.15 0.1  0.35 0.4  0.25 0.55 0.65 0.3  0.35 0.15 1.45 0.3  0.15 0.14
+ 0.26 0.04 1.08 0.06 0.66 0.08 0.18 0.2  0.12 0.1  0.56 0.02 0.04 0.26
+ 0.16 0.06 0.06 0.64 0.04 0.66 0.1  3.44 2.4  0.84 0.06 0.44 0.02 0.2
+ 0.26 0.2  0.4  0.12 0.72 0.5  0.62 0.22 0.1  0.06 0.12 0.02 0.8  0.24
+ 0.26 0.08 0.28 0.34 0.8  0.42 0.04 0.06 0.2  1.74 0.84 0.06 1.1  0.88
+ 0.1  0.86 1.3  0.4  0.24 0.5  0.3  0.12 0.66 0.12 0.96 0.14 0.08 0.2
+ 0.16 1.34]' for dtype 'int64'
+2026-03-24 19:48:13,410 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.1  0.28 0.21 0.57 0.63 0.25 0.04 0.45 0.35 0.03 0.15 0.14 0.23 0.02
+ 0.05 0.24 0.27 0.14 0.33 0.14 0.3  0.24 0.23 0.12 0.18 0.05 0.08 0.15
+ 0.34 0.33 0.04 0.08 0.14 0.02 0.02 0.2  0.23 0.18 0.18 0.07 0.05 0.37
+ 0.14 0.06 0.32 0.19 0.13 0.08 0.15 0.87 0.18 0.13 0.69 0.03 0.48 0.19
+ 0.18 0.05 0.11 0.27 0.44 0.27 0.22 0.16 0.32 0.17 0.46 0.13 0.06 0.02
+ 0.09 0.26 0.24 0.1  0.39 0.17 0.08 0.09 0.03 0.04 0.06 0.49 0.04 0.06
+ 0.07 0.07 0.07 0.49 0.39 0.15 0.77 0.94 0.06 0.38 0.06 0.71 0.01 0.02
+ 0.06 0.63 0.18 0.1  0.1  0.54 0.66 0.28 1.07 0.12 0.57]' for dtype 'int64'
+2026-03-24 19:48:15,929 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.23 0.03 0.28 0.55 0.51 0.18 0.06 0.16 0.15 0.39 0.28 0.03 0.29 0.18
+ 0.03 0.03 0.12 0.41 0.14 0.04 0.14 0.12 0.08 0.12 0.02 0.15 0.46 0.06
+ 0.1  0.02 0.24 0.08 0.15 0.13 0.01 0.08 0.05 0.07 0.16 0.15 0.29 0.32
+ 0.08 0.25 0.02 0.14 0.04 0.02 0.12 0.18 0.08 0.07 0.33 0.18 0.05 0.23
+ 0.03 0.2  0.06 0.03 0.08 0.05 0.11 0.03 0.14 0.08 0.02 0.08 0.09 0.19
+ 0.27 0.18 0.28 0.32 0.1  0.1  0.07 0.21 0.13 0.04 0.02 0.02 0.64 0.12
+ 0.21 0.06 0.16 0.56 0.19 0.09 0.21 0.15]' for dtype 'int64'
+2026-03-24 19:48:17,054 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.65 0.55 0.2  0.45 0.2  0.3  0.15 0.2  0.35 0.1  0.05 0.05 0.1  0.1
+ 0.05 0.5  0.3  0.35 0.25 0.4  1.2  0.05 0.25 0.02 0.36 0.34 0.14 0.3
+ 0.1  0.12 0.2  0.18 0.1  0.08 0.06 0.16 0.04 0.16 0.08 0.08 0.15 0.03
+ 0.07 0.22 0.5  2.52 0.22 0.18 0.1  0.06 0.06 0.04 0.14 0.02 0.04 0.16
+ 0.08 0.14 0.12 0.01 0.04 0.03 0.25 0.01 0.32 0.1  0.04 0.09 0.31 0.07
+ 0.24 0.8  0.28 0.16 0.44 0.8  0.08 0.04 0.02 0.6  0.2  1.04 0.1  0.24
+ 0.18 0.16 0.1  0.14 0.42 0.18 0.28 0.78 0.42 0.22 0.16 0.12]' for dtype 'int64'
+2026-03-24 19:48:18,308 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[ 1.6   2.    2.9   1.4   0.8   0.5   0.4   1.4   0.1   0.1   0.4   1.1
+  0.6   0.2   0.4   0.7   0.7   2.3   1.8   1.4   0.6   3.    0.2   2.4
+  0.1   0.5   0.2   0.75  0.1   1.15  0.1   0.25  0.6   0.8   0.3   0.4
+  0.4   0.3   1.    0.55  0.75  0.55  0.15  0.1   0.65  2.1   9.15 10.2
+  0.9   2.4   1.7   0.1   0.8   0.1   0.6   1.1   0.3   0.3   1.    1.
+  0.1   0.85  0.85  2.    0.9   1.2   0.3   0.6   0.45  1.35  0.3   1.95
+  0.95  1.5   0.8   1.3   0.1   2.9   2.2   1.    0.8   0.2   0.3   0.3
+  0.3   0.45  2.25  0.5   2.2   0.3   0.4   2.4 ]' for dtype 'int64'
+2026-03-24 19:48:19,439 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[ 3.8  2.6  1.   3.4  1.6  1.   0.2  1.4  0.4  0.2  7.6  1.6  4.8  1.
+  9.   1.8  5.2  1.6  3.6  1.8  2.1  0.3  1.   2.3  3.   7.1  3.   0.3
+  1.7  0.5  0.2  0.8  0.8  2.5  7.9  1.3  0.4  4.1  8.2  1.4  0.3  4.3
+  3.3  0.9  2.9  2.1  0.5  3.8  7.6  0.1  0.7  2.1  2.3  0.3  1.6  2.9
+  1.1  0.4  1.8  0.9  5.5  2.7  3.   3.1  1.6  0.5  0.6  1.1  2.8  1.
+  0.7  0.9  2.1  2.7 13.  12.   1.5  2.6  3.9  0.4  0.8  4.4  4.   3.7
+  3.9  1.8]' for dtype 'int64'
+2026-03-24 19:48:19,817 - system_integration - INFO - Received parameters: {'action': 'recommend', 'risk_profile': 'moderate', 'investment_horizon': 'medium', 'sectors': ['technology', 'healthcare'], 'exclude_symbols': [], 'max_results': 5}
+2026-03-24 19:48:19,817 - system_integration - INFO - System Integration initialized
+2026-03-24 19:48:20,855 - system_integration - INFO - Component loaded: recommendation
+2026-03-24 19:48:22,878 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.01 0.05 0.07 0.05 0.06 0.16 0.04 0.03 0.02 0.01 0.09 0.08 0.03 0.02
+ 0.01 0.06 0.04 0.02 0.02 0.1  0.02 0.09 0.1  0.11 0.02 0.06 0.07 0.01
+ 0.04 0.02 0.04 0.04 0.01 0.03 0.02 0.02 0.02 0.01 0.01 0.06 0.05 0.03
+ 0.01 0.01 0.01 0.03 0.01 0.02 0.03 0.06 0.01 0.03 0.02 0.02 0.06 0.01
+ 0.03 0.02 0.01 0.02 0.03 0.01 0.01 0.01 0.01 0.01 0.03 0.06 0.01 0.04
+ 0.02 0.01 0.02 0.01 0.01 0.13 0.17 0.07 0.04 0.03 0.03 0.02 0.12]' for dtype 'int64'
+2026-03-24 19:48:23,701 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.45 0.25 0.1  0.15 0.75 0.9  0.05 0.25 0.05 0.07 0.09 0.65 0.45 0.1
+ 0.05 0.3  0.29 0.54 0.1  0.1  0.19 0.23 0.11 0.25 0.05 0.07 0.18 0.05
+ 0.06 0.1  0.21 0.08 0.11 0.05 0.03 0.06 0.06 0.12 0.77 0.42 0.52 0.38
+ 0.47 0.19 0.07 0.09 0.12 0.23 0.01 0.47 1.06 0.02 0.2  0.08 0.26 0.08
+ 0.08 0.04 0.04 0.12 0.04 0.01 0.01 0.23 0.07 0.16 0.14 0.08 0.05 0.2
+ 0.52 0.15 0.56 0.17 0.06 0.04 0.06 0.18 0.44 0.34 0.38 0.1  0.06 0.18
+ 0.16 0.04 0.1  0.28 0.48 0.5  0.36 0.26 0.52 0.06]' for dtype 'int64'
+2026-03-24 19:48:24,780 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.21 0.19 0.19 0.08 0.2  0.03 0.1  0.06 0.04 0.03 0.08 0.18 0.01 0.03
+ 0.26 0.22 0.09 0.39 0.01 0.12 0.19 0.37 0.11 0.1  0.05 0.02 0.19 0.01
+ 0.02 0.1  0.06 0.14 0.09 0.23 0.03 0.08 0.07 0.15 0.06 0.29 0.09 0.12
+ 0.1  0.1  0.21 0.02 0.02 0.08 0.04 0.1  0.04 0.01 0.1  0.07 0.06 0.04
+ 0.02 0.05 0.01 0.07 0.02 0.06 0.08 0.14 0.09 0.07 0.09 0.07 0.05 0.04
+ 0.07 0.38 0.01 0.11 0.09 0.15 0.07 0.04 0.02 0.25 0.05 0.28 0.07 0.03
+ 0.43]' for dtype 'int64'
+2026-03-24 19:48:25,873 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.111 0.148 0.2   0.253 0.012 0.169 0.011 0.07  0.01  0.08  0.02  0.02
+ 0.12  0.065 0.1   0.07  0.11  0.021 0.02  0.398 0.18  0.15  0.05  0.1
+ 0.05  0.009 0.2   0.03  0.07  0.2   0.05  0.01  0.2   0.145 0.1   0.05
+ 0.19  0.13  0.179 0.21  0.2   0.467 0.01  0.09  0.16  0.1   0.05  0.26
+ 0.1   0.01  0.29  1.3   0.19  0.061 1.12  0.049 0.16  0.62  0.04  0.03
+ 0.25  0.02  0.02  0.09  0.12  0.21  0.03  0.07  0.1   0.11  0.028 0.142
+ 1.01  0.3   0.199 0.4   0.07  0.65  0.06  0.749 0.35  0.1   0.05  0.779
+ 0.25  0.4   0.6   0.518 0.002 0.1   0.302]' for dtype 'int64'
+2026-03-24 19:48:27,664 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.05 0.6  0.65 0.35 0.8  0.4  0.3  0.1  1.6  0.2  0.25 0.2  0.05 0.1
+ 0.15 0.1  0.35 0.4  0.25 0.55 0.65 0.3  0.35 0.15 1.45 0.3  0.15 0.14
+ 0.26 0.04 1.08 0.06 0.66 0.08 0.18 0.2  0.12 0.1  0.56 0.02 0.04 0.26
+ 0.16 0.06 0.06 0.64 0.04 0.66 0.1  3.44 2.4  0.84 0.06 0.44 0.02 0.2
+ 0.26 0.2  0.4  0.12 0.72 0.5  0.62 0.22 0.1  0.06 0.12 0.02 0.8  0.24
+ 0.26 0.08 0.28 0.34 0.8  0.42 0.04 0.06 0.2  1.74 0.84 0.06 1.1  0.88
+ 0.1  0.86 1.3  0.4  0.24 0.5  0.3  0.12 0.66 0.12 0.96 0.14 0.08 0.2
+ 0.16 1.34]' for dtype 'int64'
+2026-03-24 19:48:29,434 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.1  0.28 0.21 0.57 0.63 0.25 0.04 0.45 0.35 0.03 0.15 0.14 0.23 0.02
+ 0.05 0.24 0.27 0.14 0.33 0.14 0.3  0.24 0.23 0.12 0.18 0.05 0.08 0.15
+ 0.34 0.33 0.04 0.08 0.14 0.02 0.02 0.2  0.23 0.18 0.18 0.07 0.05 0.37
+ 0.14 0.06 0.32 0.19 0.13 0.08 0.15 0.87 0.18 0.13 0.69 0.03 0.48 0.19
+ 0.18 0.05 0.11 0.27 0.44 0.27 0.22 0.16 0.32 0.17 0.46 0.13 0.06 0.02
+ 0.09 0.26 0.24 0.1  0.39 0.17 0.08 0.09 0.03 0.04 0.06 0.49 0.04 0.06
+ 0.07 0.07 0.07 0.49 0.39 0.15 0.77 0.94 0.06 0.38 0.06 0.71 0.01 0.02
+ 0.06 0.63 0.18 0.1  0.1  0.54 0.66 0.28 1.07 0.12 0.57]' for dtype 'int64'
+2026-03-24 19:48:30,518 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.23 0.03 0.28 0.55 0.51 0.18 0.06 0.16 0.15 0.39 0.28 0.03 0.29 0.18
+ 0.03 0.03 0.12 0.41 0.14 0.04 0.14 0.12 0.08 0.12 0.02 0.15 0.46 0.06
+ 0.1  0.02 0.24 0.08 0.15 0.13 0.01 0.08 0.05 0.07 0.16 0.15 0.29 0.32
+ 0.08 0.25 0.02 0.14 0.04 0.02 0.12 0.18 0.08 0.07 0.33 0.18 0.05 0.23
+ 0.03 0.2  0.06 0.03 0.08 0.05 0.11 0.03 0.14 0.08 0.02 0.08 0.09 0.19
+ 0.27 0.18 0.28 0.32 0.1  0.1  0.07 0.21 0.13 0.04 0.02 0.02 0.64 0.12
+ 0.21 0.06 0.16 0.56 0.19 0.09 0.21 0.15]' for dtype 'int64'
+2026-03-24 19:48:31,842 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.65 0.55 0.2  0.45 0.2  0.3  0.15 0.2  0.35 0.1  0.05 0.05 0.1  0.1
+ 0.05 0.5  0.3  0.35 0.25 0.4  1.2  0.05 0.25 0.02 0.36 0.34 0.14 0.3
+ 0.1  0.12 0.2  0.18 0.1  0.08 0.06 0.16 0.04 0.16 0.08 0.08 0.15 0.03
+ 0.07 0.22 0.5  2.52 0.22 0.18 0.1  0.06 0.06 0.04 0.14 0.02 0.04 0.16
+ 0.08 0.14 0.12 0.01 0.04 0.03 0.25 0.01 0.32 0.1  0.04 0.09 0.31 0.07
+ 0.24 0.8  0.28 0.16 0.44 0.8  0.08 0.04 0.02 0.6  0.2  1.04 0.1  0.24
+ 0.18 0.16 0.1  0.14 0.42 0.18 0.28 0.78 0.42 0.22 0.16 0.12]' for dtype 'int64'
+2026-03-24 19:48:33,122 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[ 1.6   2.    2.9   1.4   0.8   0.5   0.4   1.4   0.1   0.1   0.4   1.1
+  0.6   0.2   0.4   0.7   0.7   2.3   1.8   1.4   0.6   3.    0.2   2.4
+  0.1   0.5   0.2   0.75  0.1   1.15  0.1   0.25  0.6   0.8   0.3   0.4
+  0.4   0.3   1.    0.55  0.75  0.55  0.15  0.1   0.65  2.1   9.15 10.2
+  0.9   2.4   1.7   0.1   0.8   0.1   0.6   1.1   0.3   0.3   1.    1.
+  0.1   0.85  0.85  2.    0.9   1.2   0.3   0.6   0.45  1.35  0.3   1.95
+  0.95  1.5   0.8   1.3   0.1   2.9   2.2   1.    0.8   0.2   0.3   0.3
+  0.3   0.45  2.25  0.5   2.2   0.3   0.4   2.4 ]' for dtype 'int64'
+2026-03-24 19:48:34,168 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[ 3.8  2.6  1.   3.4  1.6  1.   0.2  1.4  0.4  0.2  7.6  1.6  4.8  1.
+  9.   1.8  5.2  1.6  3.6  1.8  2.1  0.3  1.   2.3  3.   7.1  3.   0.3
+  1.7  0.5  0.2  0.8  0.8  2.5  7.9  1.3  0.4  4.1  8.2  1.4  0.3  4.3
+  3.3  0.9  2.9  2.1  0.5  3.8  7.6  0.1  0.7  2.1  2.3  0.3  1.6  2.9
+  1.1  0.4  1.8  0.9  5.5  2.7  3.   3.1  1.6  0.5  0.6  1.1  2.8  1.
+  0.7  0.9  2.1  2.7 13.  12.   1.5  2.6  3.9  0.4  0.8  4.4  4.   3.7
+  3.9  1.8]' for dtype 'int64'
+2026-03-24 19:48:44,484 - system_integration - INFO - Received parameters: {'action': 'market', 'symbols': ['2222.SR', '1211.SR', '2010.SR', '1150.SR', '1010.SR'], 'data_types': ['price', 'volume', 'market_cap']}
+2026-03-24 19:48:44,484 - system_integration - INFO - System Integration initialized
+2026-03-24 19:48:44,736 - system_integration - INFO - Received parameters: {'action': 'recommend', 'risk_profile': 'moderate', 'investment_horizon': 'medium', 'sectors': ['technology', 'healthcare'], 'exclude_symbols': [], 'max_results': 3}
+2026-03-24 19:48:44,736 - system_integration - INFO - System Integration initialized
+2026-03-24 19:48:45,785 - system_integration - INFO - Component loaded: recommendation
+2026-03-24 19:48:47,543 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.01 0.05 0.07 0.05 0.06 0.16 0.04 0.03 0.02 0.01 0.09 0.08 0.03 0.02
+ 0.01 0.06 0.04 0.02 0.02 0.1  0.02 0.09 0.1  0.11 0.02 0.06 0.07 0.01
+ 0.04 0.02 0.04 0.04 0.01 0.03 0.02 0.02 0.02 0.01 0.01 0.06 0.05 0.03
+ 0.01 0.01 0.01 0.03 0.01 0.02 0.03 0.06 0.01 0.03 0.02 0.02 0.06 0.01
+ 0.03 0.02 0.01 0.02 0.03 0.01 0.01 0.01 0.01 0.01 0.03 0.06 0.01 0.04
+ 0.02 0.01 0.02 0.01 0.01 0.13 0.17 0.07 0.04 0.03 0.03 0.02 0.12]' for dtype 'int64'
+2026-03-24 19:48:48,726 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.45 0.25 0.1  0.15 0.75 0.9  0.05 0.25 0.05 0.07 0.09 0.65 0.45 0.1
+ 0.05 0.3  0.29 0.54 0.1  0.1  0.19 0.23 0.11 0.25 0.05 0.07 0.18 0.05
+ 0.06 0.1  0.21 0.08 0.11 0.05 0.03 0.06 0.06 0.12 0.77 0.42 0.52 0.38
+ 0.47 0.19 0.07 0.09 0.12 0.23 0.01 0.47 1.06 0.02 0.2  0.08 0.26 0.08
+ 0.08 0.04 0.04 0.12 0.04 0.01 0.01 0.23 0.07 0.16 0.14 0.08 0.05 0.2
+ 0.52 0.15 0.56 0.17 0.06 0.04 0.06 0.18 0.44 0.34 0.38 0.1  0.06 0.18
+ 0.16 0.04 0.1  0.28 0.48 0.5  0.36 0.26 0.52 0.06]' for dtype 'int64'
+2026-03-24 19:48:49,857 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.21 0.19 0.19 0.08 0.2  0.03 0.1  0.06 0.04 0.03 0.08 0.18 0.01 0.03
+ 0.26 0.22 0.09 0.39 0.01 0.12 0.19 0.37 0.11 0.1  0.05 0.02 0.19 0.01
+ 0.02 0.1  0.06 0.14 0.09 0.23 0.03 0.08 0.07 0.15 0.06 0.29 0.09 0.12
+ 0.1  0.1  0.21 0.02 0.02 0.08 0.04 0.1  0.04 0.01 0.1  0.07 0.06 0.04
+ 0.02 0.05 0.01 0.07 0.02 0.06 0.08 0.14 0.09 0.07 0.09 0.07 0.05 0.04
+ 0.07 0.38 0.01 0.11 0.09 0.15 0.07 0.04 0.02 0.25 0.05 0.28 0.07 0.03
+ 0.43]' for dtype 'int64'
+2026-03-24 19:48:50,905 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.111 0.148 0.2   0.253 0.012 0.169 0.011 0.07  0.01  0.08  0.02  0.02
+ 0.12  0.065 0.1   0.07  0.11  0.021 0.02  0.398 0.18  0.15  0.05  0.1
+ 0.05  0.009 0.2   0.03  0.07  0.2   0.05  0.01  0.2   0.145 0.1   0.05
+ 0.19  0.13  0.179 0.21  0.2   0.467 0.01  0.09  0.16  0.1   0.05  0.26
+ 0.1   0.01  0.29  1.3   0.19  0.061 1.12  0.049 0.16  0.62  0.04  0.03
+ 0.25  0.02  0.02  0.09  0.12  0.21  0.03  0.07  0.1   0.11  0.028 0.142
+ 1.01  0.3   0.199 0.4   0.07  0.65  0.06  0.749 0.35  0.1   0.05  0.779
+ 0.25  0.4   0.6   0.518 0.002 0.1   0.302]' for dtype 'int64'
+2026-03-24 19:48:51,914 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.05 0.6  0.65 0.35 0.8  0.4  0.3  0.1  1.6  0.2  0.25 0.2  0.05 0.1
+ 0.15 0.1  0.35 0.4  0.25 0.55 0.65 0.3  0.35 0.15 1.45 0.3  0.15 0.14
+ 0.26 0.04 1.08 0.06 0.66 0.08 0.18 0.2  0.12 0.1  0.56 0.02 0.04 0.26
+ 0.16 0.06 0.06 0.64 0.04 0.66 0.1  3.44 2.4  0.84 0.06 0.44 0.02 0.2
+ 0.26 0.2  0.4  0.12 0.72 0.5  0.62 0.22 0.1  0.06 0.12 0.02 0.8  0.24
+ 0.26 0.08 0.28 0.34 0.8  0.42 0.04 0.06 0.2  1.74 0.84 0.06 1.1  0.88
+ 0.1  0.86 1.3  0.4  0.24 0.5  0.3  0.12 0.66 0.12 0.96 0.14 0.08 0.2
+ 0.16 1.34]' for dtype 'int64'
+2026-03-24 19:48:53,115 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.1  0.28 0.21 0.57 0.63 0.25 0.04 0.45 0.35 0.03 0.15 0.14 0.23 0.02
+ 0.05 0.24 0.27 0.14 0.33 0.14 0.3  0.24 0.23 0.12 0.18 0.05 0.08 0.15
+ 0.34 0.33 0.04 0.08 0.14 0.02 0.02 0.2  0.23 0.18 0.18 0.07 0.05 0.37
+ 0.14 0.06 0.32 0.19 0.13 0.08 0.15 0.87 0.18 0.13 0.69 0.03 0.48 0.19
+ 0.18 0.05 0.11 0.27 0.44 0.27 0.22 0.16 0.32 0.17 0.46 0.13 0.06 0.02
+ 0.09 0.26 0.24 0.1  0.39 0.17 0.08 0.09 0.03 0.04 0.06 0.49 0.04 0.06
+ 0.07 0.07 0.07 0.49 0.39 0.15 0.77 0.94 0.06 0.38 0.06 0.71 0.01 0.02
+ 0.06 0.63 0.18 0.1  0.1  0.54 0.66 0.28 1.07 0.12 0.57]' for dtype 'int64'
+2026-03-24 19:48:53,474 - system_integration - INFO - Received parameters: {'action': 'sentiment', 'symbols': ['2222.SR', '1211.SR'], 'sources': ['news', 'social_media', 'analyst_ratings'], 'time_range': '1w'}
+2026-03-24 19:48:53,474 - system_integration - INFO - System Integration initialized
+2026-03-24 19:48:53,645 - system_integration - INFO - Received parameters: {'action': 'market', 'symbols': ['2222.SR', '1211.SR', '2010.SR', '1150.SR', '1010.SR'], 'data_types': ['price', 'volume', 'market_cap']}
+2026-03-24 19:48:53,645 - system_integration - INFO - System Integration initialized
+2026-03-24 19:48:53,872 - system_integration - INFO - Received parameters: {'action': 'financial', 'symbols': ['2222.SR'], 'statement_types': ['income'], 'periods': ['annual']}
+2026-03-24 19:48:53,872 - system_integration - INFO - System Integration initialized
+2026-03-24 19:48:54,080 - system_integration - INFO - Received parameters: {'action': 'recommend', 'risk_profile': 'moderate', 'investment_horizon': 'medium', 'sectors': ['technology', 'healthcare'], 'exclude_symbols': [], 'max_results': 3}
+2026-03-24 19:48:54,080 - system_integration - INFO - System Integration initialized
+2026-03-24 19:48:54,966 - system_integration - INFO - Component loaded: recommendation
+2026-03-24 19:48:56,537 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.01 0.05 0.07 0.05 0.06 0.16 0.04 0.03 0.02 0.01 0.09 0.08 0.03 0.02
+ 0.01 0.06 0.04 0.02 0.02 0.1  0.02 0.09 0.1  0.11 0.02 0.06 0.07 0.01
+ 0.04 0.02 0.04 0.04 0.01 0.03 0.02 0.02 0.02 0.01 0.01 0.06 0.05 0.03
+ 0.01 0.01 0.01 0.03 0.01 0.02 0.03 0.06 0.01 0.03 0.02 0.02 0.06 0.01
+ 0.03 0.02 0.01 0.02 0.03 0.01 0.01 0.01 0.01 0.01 0.03 0.06 0.01 0.04
+ 0.02 0.01 0.02 0.01 0.01 0.13 0.17 0.07 0.04 0.03 0.03 0.02 0.12]' for dtype 'int64'
+2026-03-24 19:48:57,513 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.45 0.25 0.1  0.15 0.75 0.9  0.05 0.25 0.05 0.07 0.09 0.65 0.45 0.1
+ 0.05 0.3  0.29 0.54 0.1  0.1  0.19 0.23 0.11 0.25 0.05 0.07 0.18 0.05
+ 0.06 0.1  0.21 0.08 0.11 0.05 0.03 0.06 0.06 0.12 0.77 0.42 0.52 0.38
+ 0.47 0.19 0.07 0.09 0.12 0.23 0.01 0.47 1.06 0.02 0.2  0.08 0.26 0.08
+ 0.08 0.04 0.04 0.12 0.04 0.01 0.01 0.23 0.07 0.16 0.14 0.08 0.05 0.2
+ 0.52 0.15 0.56 0.17 0.06 0.04 0.06 0.18 0.44 0.34 0.38 0.1  0.06 0.18
+ 0.16 0.04 0.1  0.28 0.48 0.5  0.36 0.26 0.52 0.06]' for dtype 'int64'
+2026-03-24 19:48:58,713 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.21 0.19 0.19 0.08 0.2  0.03 0.1  0.06 0.04 0.03 0.08 0.18 0.01 0.03
+ 0.26 0.22 0.09 0.39 0.01 0.12 0.19 0.37 0.11 0.1  0.05 0.02 0.19 0.01
+ 0.02 0.1  0.06 0.14 0.09 0.23 0.03 0.08 0.07 0.15 0.06 0.29 0.09 0.12
+ 0.1  0.1  0.21 0.02 0.02 0.08 0.04 0.1  0.04 0.01 0.1  0.07 0.06 0.04
+ 0.02 0.05 0.01 0.07 0.02 0.06 0.08 0.14 0.09 0.07 0.09 0.07 0.05 0.04
+ 0.07 0.38 0.01 0.11 0.09 0.15 0.07 0.04 0.02 0.25 0.05 0.28 0.07 0.03
+ 0.43]' for dtype 'int64'
+2026-03-24 19:48:59,825 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.111 0.148 0.2   0.253 0.012 0.169 0.011 0.07  0.01  0.08  0.02  0.02
+ 0.12  0.065 0.1   0.07  0.11  0.021 0.02  0.398 0.18  0.15  0.05  0.1
+ 0.05  0.009 0.2   0.03  0.07  0.2   0.05  0.01  0.2   0.145 0.1   0.05
+ 0.19  0.13  0.179 0.21  0.2   0.467 0.01  0.09  0.16  0.1   0.05  0.26
+ 0.1   0.01  0.29  1.3   0.19  0.061 1.12  0.049 0.16  0.62  0.04  0.03
+ 0.25  0.02  0.02  0.09  0.12  0.21  0.03  0.07  0.1   0.11  0.028 0.142
+ 1.01  0.3   0.199 0.4   0.07  0.65  0.06  0.749 0.35  0.1   0.05  0.779
+ 0.25  0.4   0.6   0.518 0.002 0.1   0.302]' for dtype 'int64'
+2026-03-24 19:49:00,883 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.05 0.6  0.65 0.35 0.8  0.4  0.3  0.1  1.6  0.2  0.25 0.2  0.05 0.1
+ 0.15 0.1  0.35 0.4  0.25 0.55 0.65 0.3  0.35 0.15 1.45 0.3  0.15 0.14
+ 0.26 0.04 1.08 0.06 0.66 0.08 0.18 0.2  0.12 0.1  0.56 0.02 0.04 0.26
+ 0.16 0.06 0.06 0.64 0.04 0.66 0.1  3.44 2.4  0.84 0.06 0.44 0.02 0.2
+ 0.26 0.2  0.4  0.12 0.72 0.5  0.62 0.22 0.1  0.06 0.12 0.02 0.8  0.24
+ 0.26 0.08 0.28 0.34 0.8  0.42 0.04 0.06 0.2  1.74 0.84 0.06 1.1  0.88
+ 0.1  0.86 1.3  0.4  0.24 0.5  0.3  0.12 0.66 0.12 0.96 0.14 0.08 0.2
+ 0.16 1.34]' for dtype 'int64'
+2026-03-24 19:49:01,957 - analysis.technical.analyzer - ERROR - Œÿ√ ›Ì «· Õ·Ì· «·›‰Ì: Invalid value '[0.1  0.28 0.21 0.57 0.63 0.25 0.04 0.45 0.35 0.03 0.15 0.14 0.23 0.02
+ 0.05 0.24 0.27 0.14 0.33 0.14 0.3  0.24 0.23 0.12 0.18 0.05 0.08 0.15
+ 0.34 0.33 0.04 0.08 0.14 0.02 0.02 0.2  0.23 0.18 0.18 0.07 0.05 0.37
+ 0.14 0.06 0.32 0.19 0.13 0.08 0.15 0.87 0.18 0.13 0.69 0.03 0.48 0.19
+ 0.18 0.05 0.11 0.27 0.44 0.27 0.22 0.16 0.32 0.17 0.46 0.13 0.06 0.02
+ 0.09 0.26 0.24 0.1  0.39 0.17 0.08 0.09 0.03 0.04 0.06 0.49 0.04 0.06
+ 0.07 0.07 0.07 0.49 0.39 0.15 0.77 0.94 0.06 0.38 0.06 0.71 0.01 0.02
+ 0.06 0.63 0.18 0.1  0.1  0.54 0.66 0.28 1.07 0.12 0.57]' for dtype 'int64'
+2026-03-24 19:49:02,342 - system_integration - INFO - Received parameters: {'action': 'sentiment', 'symbols': ['2222.SR', '1211.SR'], 'sources': ['news', 'social_media', 'analyst_ratings'], 'time_range': '1w'}
+2026-03-24 19:49:02,343 - system_integration - INFO - System Integration initialized
+2026-03-24 19:49:02,595 - system_integration - INFO - Received parameters: {'action': 'financial', 'symbols': ['2222.SR'], 'statement_types': ['income'], 'periods': ['annual']}
+2026-03-24 19:49:02,595 - system_integration - INFO - System Integration initialized
+2026-03-24 19:49:02,786 - system_integration - INFO - Received parameters: {'action': 'sentiment', 'symbols': ['2222.SR'], 'sources': ['news', 'social_media', 'analyst_ratings'], 'time_range': '1w'}
+2026-03-24 19:49:02,786 - system_integration - INFO - System Integration initialized

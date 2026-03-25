@@ -1,0 +1,3 @@
+# TASI3 Multi-Service Railway Deployment
+# Deploy backend/ and client/ as separate Railway services
+# See backend/railway.toml and client/railway.toml

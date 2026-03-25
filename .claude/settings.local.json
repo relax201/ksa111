@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r \"TODO\\\\|FIXME\\\\|BUG\\\\|XXX\\\\|HACK\" /r/TASI3/tasi3 --include=*.php --include=*.py --include=*.js)",
+      "Bash(find /r/TASI3/tasi3/client/src/components -type f -name *.js)",
+      "Bash(find /r/TASI3/tasi3/client/src/pages -name *.tsx -o -name *.ts -o -name *.jsx -o -name *.js)",
+      "Bash(find /r/TASI3/tasi3/frontend -name *.tsx -o -name *.ts -o -name *.jsx -o -name *.js)",
+      "Bash(grep -r \"TODO\\\\|FIXME\\\\|BUG\\\\|HACK\" /r/TASI3/tasi3 --include=*.py --include=*.php --include=*.js --include=*.jsx)",
+      "Bash(find /r/TASI3/tasi3/backend -name *.php -type f)",
+      "Bash(find /r/TASI3/tasi3/backend/app/Services -name *.php -type f)",
+      "Bash(find /r/TASI3/tasi3/client/src -name *.js -o -name *.jsx)",
+      "Bash(find /r/TASI3/tasi3 -type f \\\\\\(-name *.py \\\\\\))",
+      "Bash(find /r/TASI3/tasi3 -path /r/TASI3/tasi3/backend/vendor -prune -o -path /r/TASI3/tasi3/client/node_modules -prune -o -type f -name *.py -print)",
+      "Bash(grep -r \"NotImplementedError\\\\|TODO\\\\|FIXME\\\\|pass$\" /r/TASI3/tasi3 --include=*.py)",
+      "Bash(grep -n \"pass$\\\\|NotImplemented\\\\|stub\\\\|TODO\\\\|FIXME\" /r/TASI3/tasi3/recommendation/engine.py)",
+      "Bash(find /r/TASI3/tasi3/data -name *.py -type f)",
+      "Bash(xargs grep:*)",
+      "Bash(grep -r api.php /r/TASI3/tasi3/client/src --include=*.js)",
+      "Bash(grep -r \"TODO\\\\|FIXME\\\\|STUB\\\\|XXX\" /r/TASI3/tasi3/backend/app --include=*.php)",
+      "Bash(grep -n \"TechnicalAnalysisService\\\\|FundamentalAnalysisService\" /r/TASI3/tasi3/backend/app/Services/*.php)",
+      "Bash(pip show:*)",
+      "Bash(php -m)",
+      "Bash(php artisan:*)",
+      "Bash(php -r \"file_put_contents\\(''database/database.sqlite'', ''''\\);\")",
+      "Bash(curl -s http://localhost:8000/api/v1/market/sectors)",
+      "Bash(curl -s -X POST http://localhost:8000/api/v1/integration/recommendations -H \"Content-Type: application/json\" -d '{\"\"\"\"risk_profile\"\"\"\":\"\"\"\"moderate\"\"\"\",\"\"\"\"investment_horizon\"\"\"\":\"\"\"\"medium\"\"\"\",\"\"\"\"sectors\"\"\"\":[\"\"\"\"technology\"\"\"\"],\"\"\"\"max_results\"\"\"\":5}')",
+      "Bash(python \"r:/TASI3/tasi3/integration/system_integration.py\" '{\"\"\"\"action\"\"\"\":\"\"\"\"recommend\"\"\"\",\"\"\"\"risk_profile\"\"\"\":\"\"\"\"moderate\"\"\"\",\"\"\"\"investment_horizon\"\"\"\":\"\"\"\"medium\"\"\"\",\"\"\"\"sectors\"\"\"\":[\"\"\"\"technology\"\"\"\"],\"\"\"\"max_results\"\"\"\":5}')",
+      "Bash(curl -s -X POST http://localhost:8000/api/v1/integration/recommendations -H \"Content-Type: application/json\" -d '{\"\"risk_profile\"\":\"\"moderate\"\",\"\"investment_horizon\"\":\"\"medium\"\",\"\"sectors\"\":[\"\"technology\"\"],\"\"max_results\"\":5}')",
+      "Bash(php -r \":*)",
+      "Bash(curl -s -X POST http://localhost:8000/api/v1/integration/recommendations -H \"Content-Type: application/json\" -d '{\"\"risk_profile\"\":\"\"moderate\"\",\"\"investment_horizon\"\":\"\"medium\"\",\"\"sectors\"\":[\"\"technology\"\"],\"\"max_results\"\":3}')",
+      "Bash(curl -s http://localhost:8000/api/v1/market/overview)",
+      "Bash(python -m json.tool)",
+      "Read(//r/TASI3/tasi3/backend/**)",
+      "Bash(curl -s \"http://localhost:8000/api/v1/market/top-gainers?limit=3\")",
+      "Bash(curl -s \"http://localhost:8000/api/v1/stocks/\")",
+      "Bash(curl -s -X POST http://localhost:8000/api/v1/auth/login -H \"Content-Type: application/json\" -d '{\"\"\"\"email\"\"\"\":\"\"\"\"test@test.com\"\"\"\",\"\"\"\"password\"\"\"\":\"\"\"\"wrong\"\"\"\"}')",
+      "Bash(curl -s -X POST http://localhost:8000/api/v1/auth/register -H \"Content-Type: application/json\" -d '{\"\"name\"\":\"\"Test User\"\",\"\"email\"\":\"\"test@example.com\"\",\"\"password\"\":\"\"password123\"\",\"\"password_confirmation\"\":\"\"password123\"\"}')",
+      "Bash(head -5 ls r:/TASI3/tasi3/client/.env*)",
+      "Bash(node -e \":*)"
+    ]
+  }
+}
