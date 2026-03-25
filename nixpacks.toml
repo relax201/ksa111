@@ -1,11 +1,20 @@
 [phases.setup]
-nixPkgs = ["nodejs_20"]
+nixPkgs = ["php82", "php82Extensions.pdo", "php82Extensions.pdo_mysql", "php82Extensions.mbstring", "php82Extensions.xml", "php82Extensions.curl", "php82Extensions.zip", "php82Extensions.gd", "php82Packages.composer", "nodejs_20"]
 
 [phases.install]
-cmds = ["cd client && npm ci --legacy-peer-deps"]
+cmds = [
+  "mkdir -p backend/bootstrap/cache backend/storage/framework/cache backend/storage/framework/sessions backend/storage/framework/views backend/storage/logs",
+  "chmod -R 777 backend/storage backend/bootstrap/cache",
+  "cd backend && composer install --no-dev --optimize-autoloader --no-scripts --no-interaction",
+  "cd backend && composer dump-autoload --optimize --no-scripts",
+  "cd client && npm ci --legacy-peer-deps"
+]
 
 [phases.build]
-cmds = ["cd client && npm run build"]
+cmds = [
+  "cd client && npm run build",
+  "cp -r client/build/. backend/public/"
+]
 
 [start]
-cmd = "node client/server.js"
+cmd = "cd backend && php artisan package:discover --ansi || true && php artisan config:cache || true && php artisan route:cache || true && php artisan migrate --force || true && php -d variables_order=EGPCS -S 0.0.0.0:${PORT:-8000} -t public public/router.php"
