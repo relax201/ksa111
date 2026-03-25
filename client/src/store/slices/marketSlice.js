@@ -6,15 +6,14 @@ export const fetchMarketData = createAsyncThunk(
   'market/fetchMarketData',
   async (params, { rejectWithValue }) => {
     try {
-      const symbolFilter = params?.symbols?.[0] ?? '';
-      const url = symbolFilter
-        ? `/api/v1/stocks/?symbol=${encodeURIComponent(symbolFilter.replace('.SR', ''))}`
-        : '/api/v1/stocks/';
-
-      const response = await axios.get(url, { timeout: 15000 });
+      const response = await axios.get('/api/v1/stocks/', { timeout: 15000 });
 
       // Transform array to map keyed by symbol
-      const stocks = response.data?.data ?? [];
+      const allStocks = response.data?.data ?? [];
+      const requestedSymbols = (params?.symbols ?? []).map(s => s.replace('.SR', ''));
+      const stocks = requestedSymbols.length > 0
+        ? allStocks.filter(s => requestedSymbols.some(req => s.symbol?.includes(req)))
+        : allStocks;
       const dataMap = {};
       stocks.forEach(stock => {
         if (stock.symbol) dataMap[stock.symbol] = stock;
