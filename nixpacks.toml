@@ -8,7 +8,7 @@ cmds = [
   "cd backend && composer install --no-dev --optimize-autoloader --no-scripts --no-interaction",
   "cd backend && composer dump-autoload --optimize --no-scripts",
   "cd client && npm ci --legacy-peer-deps",
-  "python3 -m pip install --no-cache-dir -r integration/requirements-production.txt"
+  "python3 -m ensurepip --upgrade && python3 -m pip install --no-cache-dir -r integration/requirements-production.txt"
 ]
 
 [phases.build]
