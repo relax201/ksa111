@@ -43,7 +43,6 @@ import {
 } from 'recharts';
 
 // Redux actions
-import { fetchMarketData } from '../store/slices/marketSlice';
 import { fetchRecommendations } from '../store/slices/recommendationsSlice';
 import { fetchSentimentAnalysis } from '../store/slices/sentimentSlice';
 
@@ -67,9 +66,13 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   
   // Redux state
-  const marketData = useSelector((state) => state.market);
   const recommendations = useSelector((state) => state.recommendations);
   const sentiment = useSelector((state) => state.sentiment);
+
+  // Local state for top gainers/losers (fetched from dedicated endpoints)
+  const [topGainers, setTopGainers] = useState([]);
+  const [topLosers, setTopLosers] = useState([]);
+  const [moversLoading, setMoversLoading] = useState(true);
 
   // Local state for sector performance (fetched from API)
   const [sectorPerformanceData, setSectorPerformanceData] = useState([
@@ -103,6 +106,19 @@ const Dashboard = () => {
     ];
   }, [sentiment?.sentiment]);
 
+  // Fetch top gainers and losers from dedicated endpoints
+  useEffect(() => {
+    Promise.all([
+      axios.get('/api/v1/market/top-gainers?limit=5'),
+      axios.get('/api/v1/market/top-losers?limit=5'),
+    ]).then(([gainersRes, losersRes]) => {
+      const gainers = gainersRes.data?.data ?? [];
+      const losers = losersRes.data?.data ?? [];
+      if (gainers.length > 0) setTopGainers(gainers);
+      if (losers.length > 0) setTopLosers(losers);
+    }).catch(() => {}).finally(() => setMoversLoading(false));
+  }, []);
+
   // Fetch sector performance from API
   useEffect(() => {
     axios.get('/api/v1/market/sectors').then((res) => {
@@ -123,33 +139,9 @@ const Dashboard = () => {
 
   // Fetch data on component mount
   useEffect(() => {
-    dispatch(fetchMarketData({ symbols: ['2222.SR', '1211.SR', '2010.SR', '1150.SR', '1010.SR'] }));
     dispatch(fetchRecommendations({ maxResults: 3 }));
     dispatch(fetchSentimentAnalysis({ symbols: ['2222.SR', '1211.SR'] }));
   }, [dispatch]);
-  
-  // Prepare top gainers and losers
-  const topGainers = [];
-  const topLosers = [];
-  
-  if (marketData.status === 'succeeded') {
-    // Process market data to get top gainers and losers
-    const stocksArray = Object.entries(marketData.data).map(([symbol, data]) => ({
-      symbol,
-      ...data
-    }));
-    
-    // Sort by change percentage
-    const sortedStocks = [...stocksArray].sort((a, b) => {
-      const aChange = parseFloat(a.change_percent);
-      const bChange = parseFloat(b.change_percent);
-      return bChange - aChange;
-    });
-    
-    // Get top 3 gainers (positive change only) and top 3 losers (negative change only)
-    topGainers.push(...sortedStocks.filter(s => parseFloat(s.change_percent) > 0).slice(0, 3));
-    topLosers.push(...sortedStocks.filter(s => parseFloat(s.change_percent) < 0).sort((a, b) => parseFloat(a.change_percent) - parseFloat(b.change_percent)).slice(0, 3));
-  }
   
   return (
     <Box>
@@ -231,21 +223,21 @@ const Dashboard = () => {
             />
             <Divider />
             <CardContent>
-              {marketData.status === 'loading' ? (
+              {moversLoading ? (
                 <Box sx={{ display: 'flex', justifyContent: 'center', p: 2 }}>
                   <CircularProgress />
                 </Box>
-              ) : marketData.status === 'succeeded' && topGainers.length > 0 ? (
+              ) : topGainers.length > 0 ? (
                 <List>
-                  {topGainers.map((stock) => (
+                  {topGainers.slice(0, 3).map((stock) => (
                     <ListItem key={stock.symbol} divider>
                       <ListItemText
-                        primary={stock.symbol}
+                        primary={stock.name ?? stock.symbol}
                         secondary={`${stock.price} ريال`}
                       />
                       <Chip
                         icon={<ArrowUpIcon />}
-                        label={stock.change_percent}
+                        label={`${stock.change_percent}%`}
                         color="success"
                         size="small"
                       />
@@ -260,32 +252,32 @@ const Dashboard = () => {
             </CardContent>
           </Card>
         </Grid>
-        
+
         {/* Top Losers */}
         <Grid item xs={12} md={6} lg={4}>
           <Card>
-            <CardHeader 
-              title={t('dashboard.topLosers')} 
+            <CardHeader
+              title={t('dashboard.topLosers')}
               titleTypographyProps={{ variant: 'h6' }}
               avatar={<TrendingDownIcon color="error" />}
             />
             <Divider />
             <CardContent>
-              {marketData.status === 'loading' ? (
+              {moversLoading ? (
                 <Box sx={{ display: 'flex', justifyContent: 'center', p: 2 }}>
                   <CircularProgress />
                 </Box>
-              ) : marketData.status === 'succeeded' && topLosers.length > 0 ? (
+              ) : topLosers.length > 0 ? (
                 <List>
-                  {topLosers.map((stock) => (
+                  {topLosers.slice(0, 3).map((stock) => (
                     <ListItem key={stock.symbol} divider>
                       <ListItemText
-                        primary={stock.symbol}
+                        primary={stock.name ?? stock.symbol}
                         secondary={`${stock.price} ريال`}
                       />
                       <Chip
                         icon={<ArrowDownIcon />}
-                        label={stock.change_percent}
+                        label={`${stock.change_percent}%`}
                         color="error"
                         size="small"
                       />

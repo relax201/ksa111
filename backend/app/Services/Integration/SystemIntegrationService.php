@@ -56,7 +56,7 @@ class SystemIntegrationService
             $escapedTempFile = escapeshellarg($tempFile);
 
             // تنفيذ سكريبت Python
-            $pythonExecutable = 'python';
+            $pythonExecutable = 'python3';
             $logPath = storage_path('logs/python_integration.log');
             $command = "{$pythonExecutable} {$escapedScript} {$escapedTempFile} 2>> " . escapeshellarg($logPath);
 
