@@ -8,7 +8,7 @@ cmds = [
   "cd backend && composer install --no-dev --optimize-autoloader --no-scripts --no-interaction",
   "cd backend && composer dump-autoload --optimize --no-scripts",
   "cd client && npm ci --legacy-peer-deps",
-  "python3 -m ensurepip --upgrade && python3 -m pip install --no-cache-dir -r integration/requirements-production.txt"
+  "python3 -m venv /app/venv && /app/venv/bin/pip install --no-cache-dir -r integration/requirements-production.txt"
 ]
 
 [phases.build]
@@ -18,4 +18,4 @@ cmds = [
 ]
 
 [start]
-cmd = "cd backend && php artisan package:discover --ansi || true && php artisan config:cache || true && php artisan route:cache || true && php artisan migrate --force || true && php -d variables_order=EGPCS -S 0.0.0.0:${PORT:-8000} -t public public/router.php"
+cmd = "export PATH=/app/venv/bin:$PATH && cd backend && php artisan package:discover --ansi || true && php artisan config:cache || true && php artisan route:cache || true && php artisan migrate --force || true && php -d variables_order=EGPCS -S 0.0.0.0:${PORT:-8000} -t public public/router.php"
